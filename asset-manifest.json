@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/restoApp/static/css/main.ecaeeea3.css",
-    "main.js": "/restoApp/static/js/main.3741b864.js",
+    "main.js": "/restoApp/static/js/main.f94a6ddc.js",
     "static/js/919.088017c2.chunk.js": "/restoApp/static/js/919.088017c2.chunk.js",
     "static/media/korean.png": "/restoApp/static/media/korean.4a733e2c72322f39c542.png",
     "static/media/Italifood-7.png": "/restoApp/static/media/Italifood-7.c9e75abef4e713d883ae.png",
@@ -46,11 +46,11 @@
     "static/media/cart.jpg": "/restoApp/static/media/cart.befe355adf0c662b6f16.jpg",
     "index.html": "/restoApp/index.html",
     "main.ecaeeea3.css.map": "/restoApp/static/css/main.ecaeeea3.css.map",
-    "main.3741b864.js.map": "/restoApp/static/js/main.3741b864.js.map",
+    "main.f94a6ddc.js.map": "/restoApp/static/js/main.f94a6ddc.js.map",
     "919.088017c2.chunk.js.map": "/restoApp/static/js/919.088017c2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ecaeeea3.css",
-    "static/js/main.3741b864.js"
+    "static/js/main.f94a6ddc.js"
   ]
 }
