@@ -48,3 +48,53 @@
     text-decoration: none;
     color: grey;
 }
+
+/* Media Queries pour la responsivité */
+@media screen and (max-width: 768px) {
+  .footer {
+    height: auto;
+    padding-bottom: 10px;
+  }
+
+  .footer-main {
+    flex-wrap: wrap;
+    padding: 0 20px;
+  }
+
+  .footer-main > div {
+    width: 45%;
+    margin-bottom: 20px;
+  }
+
+  .flogo {
+    margin: 20px auto;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-main > div {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .footer ul {
+    margin-bottom: 15px;
+  }
+
+  .footer li {
+    padding-bottom: 8px;
+  }
+
+  .footerimg {
+    width: 25px;
+    height: 25px;
+    margin: 3px;
+  }
+
+  .flogo {
+    width: 80px;
+    height: 48px;
+  }
+}

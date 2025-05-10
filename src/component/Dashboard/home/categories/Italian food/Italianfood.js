@@ -48,7 +48,7 @@ function Italianfood(){
 
                     <span style={{display:'block'}}>₹{ele.rate}</span>
 
-                    <button className="slide-cart-button" onClick={order}>Order</button>{'  '}
+
                     
                     <button className="slide-cart-button" onClick={()=>AddtoCart(ele)}>+Add toCart</button>
                 </div>

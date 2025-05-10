@@ -1,16 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from '../image/food.png'
-import cartimg from '../image/cart.jpg'
 import '../header/header.css'
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function Header(){
-    const {cartTotalQUantity}=useSelector((state)=>state.cart)
+    const {cartTotalQuantity}=useSelector((state)=>state.cart)
+    const [menuOpen, setMenuOpen] = useState(false);
     let history=useHistory()
-    function AddCart(){
-        history.push('/cart')
-    }
+    
     function Profile(){
         history.push('/profile')
     }
@@ -20,17 +18,36 @@ function Header(){
     function Logout(){
         history.push('login')
     }
+
+    function toggleMenu() {
+        setMenuOpen(!menuOpen);
+    }
+
     return(
         <div className="header">
-            <img src={logo} className='logo'></img>
-            <div><input type='text' className="search-input"/><button >Search</button></div>
+            <img src={logo} className='logo' alt="logo"></img>
+            <div className="search-container">
+                <input type='text' className="search-input" placeholder="Rechercher..."/>
+                <button>Search</button>
+            </div>
 
-            <div style={{position:'relative',width:'100px'}}><button className="cart-button" onClick={AddCart}><img  src={cartimg}></img></button>
-            <span className="msg"> {cartTotalQUantity}</span></div>
-             {' '}
-            <button className="cart-button" ><p style={{color:"white",marginTop:'12px'}} onClick={gotoHome}>Home</p></button>
-            <button className="cart-button"  ><p style={{color:"white",marginTop:'12px'}} onClick={Profile}>Profile</p></button>  
-            <button className="cart-button"  ><p style={{color:"white",marginTop:'12px'}} onClick={Logout}>Log out</p></button>  
+            {/* <button className="menu-toggle" onClick={toggleMenu}>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div className={`nav-menu ${menuOpen ? 'active' : ''}`}>
+                <button className="nav-button" onClick={gotoHome}>
+                    <p>Home</p>
+                </button>
+                <button className="nav-button" onClick={Profile}>
+                    <p>Profile</p>
+                </button>  
+                <button className="nav-button" onClick={Logout}>
+                    <p>Log out</p>
+                </button>  
+            </div> */}
         </div>
     )
 }

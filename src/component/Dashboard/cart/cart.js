@@ -1,97 +1,119 @@
-import React from "react";
-import Header from "../header/header";
-import '../cart/cart.css'
-import { useSelector,useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import Footer from "../footer/footer";
-import { addTocart, clearCartItem, decreaseCart, getTotals, removeCartItem } from "./cartslice";
-function Cart(){
-    const history=useHistory()
-    const cart=useSelector((state)=>state.cart)
-    const dispatch=useDispatch()
-    useEffect(()=>{
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { clearCartItem, decreaseCart, getTotals, addTocart, removeCartItem } from './cartslice'
+import Header from '../header/header'
+import Footer from '../footer/footer'
+import './cart.css'
+
+function Cart() {
+    const cart = useSelector((state) => state.cart)
+    const dispatch = useDispatch()
+    const history = useHistory()
+
+    useEffect(() => {
         dispatch(getTotals())
-    },[cart,dispatch])
-    function detail(id){
-        history.push(`/singledish?id=${id}`)
+    }, [cart, dispatch])
+
+    const handleRemoveFromCart = (cartItem) => {
+        dispatch(removeCartItem(cartItem))
     }
-    function remove(ele){
-        dispatch(removeCartItem(ele))
+
+    const handleDecreaseCart = (cartItem) => {
+        dispatch(decreaseCart(cartItem))
     }
-    function decrease(cartitem){
-        dispatch(decreaseCart(cartitem))
-    }
-    function increase(cartItem){
+
+    const handleIncreaseCart = (cartItem) => {
         dispatch(addTocart(cartItem))
     }
-    function clearcart(){
+
+    const handleClearCart = () => {
         dispatch(clearCartItem())
     }
-    function order(){
+
+    const handleOrder = () => {
         alert('Your order placed successfully!!')
         dispatch(clearCartItem())
+        history.push('/home')
     }
-    return(
-        <div className="cart-bg">
+
+    return (
+        <div className="page-container">
             <Header />
-            <div className="cart"><h1 style={{padding:'10px'}}>Shopping cart</h1>
-            {
-                cart.cartItems.length===0 ?(
-                    <div style={{marginBottom:'165px',padding:'10px'}}>
-                        <p>Your cart is currently empty</p>
-                        
-                    </div>
-                ) :(
-                    <div className="cart-main">
-                        <div className="cart-main-head">
-                            <h3 className="cart-main-head-h3">Product</h3>
-                            <h3>Price</h3>
-                            <h3>Quantity</h3>
-                            <h3>Total</h3>
-                       </div>
-
-                        {
-                            cart.cartItems?.map(cartItems=>(
-                                    <div key={cartItems.id} className="cart-main-body">
-
-                                     <div className="cart-main-body-div">
-                                        <img src={cartItems.url}   alt={cartItems.title} onClick={()=>detail(cartItems.id)} /> 
-                                     <div style={{paddingLeft:'5px'}}>
-                                     <h3 >{cartItems.title}</h3>
-                                     <button onClick={()=>remove(cartItems)}>Delete</button>
-                                     </div>
-                                     </div>
-
-                                     <div className="cart-main-body-div2"><h5>₹{cartItems.rate}</h5></div>
-
-                                     <div className="quantity">
-                                        <button onClick={()=>decrease(cartItems)}>-</button><span>{cartItems.cartQuantity}</span>
-                                        <button onClick={()=>increase(cartItems)}>+</button>
-                                     </div>
-
-                                     <div className="cart-main-body-div2">
-                                        <div style={{color:'green',fontSize:'23px'}}>₹{cartItems.cartQuantity*cartItems.rate} </div>
-                                     </div>
+            <div className="content-wrap">
+                <div className="cart-container-page">
+                    <h2 className="cart-heading">Votre Panier</h2>
+                    
+                    {cart.cartItems.length === 0 ? (
+                        <div className="cart-empty">
+                            <p>Votre panier est vide</p>
+                            <button onClick={() => history.push('/home')} className="start-shopping">
+                                Commencer vos achats
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="cart-items-container">
+                            {cart.cartItems?.map(cartItem => (
+                                <div key={cartItem.id} className="cart-item-card">
+                                    <img 
+                                        src={cartItem.url} 
+                                        alt={cartItem.title} 
+                                        className="cart-item-image"
+                                        onClick={() => history.push(`/singledish?id=${cartItem.id}`)}
+                                    />
+                                    <div className="cart-item-info">
+                                        <h3 className="cart-item-title">{cartItem.title}</h3>
+                                        <p className="cart-item-price">₹{cartItem.rate}</p>
+                                        
+                                        <div className="cart-item-quantity">
+                                            <button 
+                                                className="quantity-button"
+                                                onClick={() => handleDecreaseCart(cartItem)}
+                                            >
+                                                -
+                                            </button>
+                                            <span className="quantity-value">{cartItem.cartQuantity}</span>
+                                            <button 
+                                                className="quantity-button"
+                                                onClick={() => handleIncreaseCart(cartItem)}
+                                            >
+                                                +
+                                            </button>
+                                            <button 
+                                                className="remove-button"
+                                                onClick={() => handleRemoveFromCart(cartItem)}
+                                            >
+                                                Supprimer
+                                            </button>
+                                        </div>
+                                        <div className="cart-item-total">
+                                            <span>Total: ₹{cartItem.cartQuantity * cartItem.rate}</span>
+                                        </div>
                                     </div>
-                            ))
-                        }
-                        <div style={{display:'flex',justifyContent:'space-between',width:'1100px',marginLeft:'10px'}}>
-                            <div>
-                               <button className="clearCart-button" onClick={()=>clearcart()}> Clear cart </button>
-                            </div>
-                            <div>
-                                <p>Subtotal <span style={{fontSize:'12px'}}>*including all taxes*</span>: <b><span style={{fontSize:'23px'}}> ₹{cart.totalAmount}/-</span></b></p>
-                               
-                                <button className="Order-button " onClick={order}>Order</button>
+                                </div>
+                            ))}
+
+                            <div className="cart-summary">
+                                <div className="cart-total">
+                                    <span>Total:</span>
+                                    <span>₹{cart.totalAmount}</span>
+                                </div>
+                                <div className="cart-actions">
+                                    <button className="clear-cart" onClick={handleClearCart}>
+                                        Vider le panier
+                                    </button>
+                                    <button className="checkout-button" onClick={handleOrder}>
+                                        Commander
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                )
-            }
+                    )}
+                </div>
             </div>
             <Footer />
         </div>
     )
 }
+
 export default Cart

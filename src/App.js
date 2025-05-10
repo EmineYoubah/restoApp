@@ -8,9 +8,11 @@ import Cart from './component/Dashboard/cart/cart';
 import Singledish from './component/Dashboard/home/categories/singledish';
 import Alldish from './component/Dashboard/All dish/alldish';
 import Profile from './component/Dashboard/profile/profile';
+import FloatingCart from './component/Dashboard/cart/FloatingCart';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { getTotals } from './component/Dashboard/cart/cartslice';
+
 function App() {
   store.dispatch(getTotals())
 
@@ -20,13 +22,13 @@ function App() {
       <BrowserRouter>
       <Provider store={store}>
       <Switch>
-        <Route  exact path='/'><Register  /></Route>
-        <Route path='/login'> <Login /></Route>
-        <Route path='/home'> <Home /></Route>
-        <Route path='/cart'> <Cart /></Route>
-        <Route path='/singledish'> <Singledish /></Route>
-        <Route path='/alldish'> <Alldish /></Route>
-        <Route path='/profile'> <Profile /></Route>
+        <Route  exact path='/'><Home /><FloatingCart /></Route>
+        {/*<Route path='/login'> <Login /></Route>*/}
+        <Route path='/home'> <Home /><FloatingCart /></Route>
+        <Route path='/cart'> <Cart /><FloatingCart /></Route>
+        <Route path='/singledish'> <Singledish /><FloatingCart /></Route>
+        <Route path='/alldish'> <Alldish /><FloatingCart /></Route>
+        <Route path='/profile'> <Profile /><FloatingCart /></Route>
       </Switch>
       </Provider>
       </BrowserRouter>

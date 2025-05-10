@@ -1,0 +1,23 @@
+.home {
+    padding-top: 0px;
+    overflow-x: hidden;
+}
+
+.main-slice {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    overflow: hidden;
+    
+}
+
+.categories {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .home {
+        /* padding-top: 50px; */
+    }
+}
