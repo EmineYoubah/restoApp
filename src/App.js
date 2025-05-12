@@ -30,12 +30,12 @@ function App() {
         <Route  exact path='/restoApp'><Home /><FloatingCart /></Route>
         {/*<Route path='/login'> <Login /></Route>*/}
         <Route  exact path='/'><Home /><FloatingCart /></Route>
-        <Route path='/Boisson'><BoissonMenu/><FloatingCart /> </Route>
-        <Route path='/Dessert'><DessertMenu/><FloatingCart /> </Route>
-        <Route path='/Entries'><EntriesMenu/><FloatingCart /> </Route>
-        <Route path='/Plats'><PlatsMenu/><FloatingCart /> </Route>
-        <Route path='/Salades'><SaladesMenu/><FloatingCart /> </Route>
-        <Route path='/home'> <Home /><FloatingCart /></Route>
+        <Route path='/restoApp/Boisson'><BoissonMenu/><FloatingCart /> </Route>
+        <Route path='/restoApp/Dessert'><DessertMenu/><FloatingCart /> </Route>
+        <Route path='/restoApp/Entries'><EntriesMenu/><FloatingCart /> </Route>
+        <Route path='/restoApp/Plats'><PlatsMenu/><FloatingCart /> </Route>
+        <Route path='/restoApp/Salades'><SaladesMenu/><FloatingCart /> </Route>
+        <Route path='/restoApp/home'> <Home /><FloatingCart /></Route>
 
         <Route path='/cart'> <Cart /><FloatingCart /></Route>
         <Route path='/singledish'> <Singledish /><FloatingCart /></Route>

@@ -10,22 +10,22 @@ function Header(){
     let history=useHistory()
     
     function Accueil(){
-        history.push('/')
+        history.push('/restoApp')
     }
     function plats(){
-        history.push('Plats')
+        history.push('/restoApp/Plats')
     }
     function entries(){
-        history.push('Entries')
+        history.push('/restoApp/Entries')
     }
     function boisson(){
-        history.push('Boisson')
+        history.push('/restoApp/Boisson')
     }
     function dessert(){
-        history.push('Dessert')
+        history.push('/restoApp/Dessert')
     }
     function salades(){
-        history.push('Salades')
+        history.push('/restoApp/Salades')
     }
 
     
