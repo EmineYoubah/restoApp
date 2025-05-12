@@ -9,45 +9,41 @@ function Header(){
     const [menuOpen, setMenuOpen] = useState(false);
     let history=useHistory()
     
-    function Profile(){
-        history.push('/profile')
+    function Accueil(){
+        history.push('/')
     }
-    function gotoHome(){
-        history.push('/home')
+    function plats(){
+        history.push('Plats')
     }
-    function Logout(){
-        history.push('login')
+    function entries(){
+        history.push('Entries')
+    }
+    function boisson(){
+        history.push('Boisson')
+    }
+    function dessert(){
+        history.push('Dessert')
+    }
+    function salades(){
+        history.push('Salades')
     }
 
-    function toggleMenu() {
-        setMenuOpen(!menuOpen);
-    }
+    
 
     return(
         <div className="header">
-            <img src={logo} className='logo' alt="logo"></img>
+            {/* <img src={logo} className='logo' alt="logo"></img> */}
             <div className="search-container">
-                <input type='text' className="search-input" placeholder="Rechercher..."/>
-                <button>Search</button>
+                <button onClick={()=>Accueil()}>Accueil</button>
+                <button onClick={()=>plats()}>Plats</button>
+                <button onClick={()=>entries()}>Entries</button>
+                <button onClick={()=>boisson()}>Boisson</button>
+                <button onClick={()=>dessert()}>Dessert</button>
+                <button onClick={()=>salades()}> Salades</button>
+
             </div>
 
-            {/* <button className="menu-toggle" onClick={toggleMenu}>
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <div className={`nav-menu ${menuOpen ? 'active' : ''}`}>
-                <button className="nav-button" onClick={gotoHome}>
-                    <p>Home</p>
-                </button>
-                <button className="nav-button" onClick={Profile}>
-                    <p>Profile</p>
-                </button>  
-                <button className="nav-button" onClick={Logout}>
-                    <p>Log out</p>
-                </button>  
-            </div> */}
+           
         </div>
     )
 }

@@ -3,14 +3,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './home.css';
 import Imageslide from "./Imageslides";
 import Header from "../header/header";
-import Indianfood from "./categories/Indianfood/Indianfood";
+import Entries from "./categories/Entries/Entries";
 import Footer from "../footer/footer";
-import Italianfood from "./categories/Italian food/Italianfood";
+import Plats from "./categories/Plats/Plats";
 import { useSelector, useDispatch } from "react-redux";
 import { getTotals } from "../cart/cartslice";
 import { useEffect } from "react";
 import Categories from "./categories/categories";
-import Koreanfood from "./categories/korean food/Koreanfood";
+import Salades from "./categories/Salades/Salades";
+import Dessert from "./categories/Dessert/Dessert";
+import Boisson from "./categories/Boisson/Boisson";
+
 
 // Import des images
 import slide1 from '../image/slide1.jpg';
@@ -38,13 +41,15 @@ function Home(){
         <div className="home">
             <Header/>
             <div className="main-slice">
-                <Imageslide slides={slides} />
+                {/* <Imageslide slides={slides} /> */}
             </div>
-            <Categories />
+            {/* <Categories /> */}
             <div className="categories">
-                <Indianfood />
-                <Italianfood />
-                <Koreanfood />
+                <Entries />
+                <Plats />
+                <Salades />
+                <Dessert />
+                <Boisson />
             </div>
             <Footer/>
         </div>

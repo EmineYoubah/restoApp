@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addTocart } from "../../../cart/cartslice";
 import '../../../header/header.css'
-function Koreanfood(){
+function Salades(){
     const dispatch=useDispatch()
     let Food3=Food.filter((ele)=>ele.titlename==='korean');
     let history=useHistory();
@@ -34,7 +34,7 @@ function Koreanfood(){
     }
     return(
         <div  className="indi-css"> 
-            <h3 >Korean Food</h3>
+            <h3 >Salades</h3>
             
             <div className="main-image">
             <button className="leftImageArrowStyles" onClick={()=>prevImage()}> ❰❰</button>
@@ -60,4 +60,4 @@ function Koreanfood(){
     )
 }
 
-export default Koreanfood
+export default Salades

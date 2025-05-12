@@ -12,6 +12,11 @@ import FloatingCart from './component/Dashboard/cart/FloatingCart';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { getTotals } from './component/Dashboard/cart/cartslice';
+import BoissonMenu from './component/Dashboard/home/categories/Boisson/BoissonMenu.js';
+import DessertMenu from './component/Dashboard/home/categories/Dessert/DessertMenu.js';
+import EntriesMenu from './component/Dashboard/home/categories/Entries/EntriesMenue.js';
+import PlatsMenu from './component/Dashboard/home/categories/Plats/PlatsMenu.js';
+import SaladesMenu from './component/Dashboard/home/categories/Salades/SladeMenu.js';
 
 function App() {
   store.dispatch(getTotals())
@@ -22,9 +27,16 @@ function App() {
       <BrowserRouter>
       <Provider store={store}>
       <Switch>
-        <Route  exact path='/'><Home /><FloatingCart /></Route>
+        <Route  exact path='/restoApp'><Home /><FloatingCart /></Route>
         {/*<Route path='/login'> <Login /></Route>*/}
+        <Route  exact path='/'><Home /><FloatingCart /></Route>
+        <Route path='/Boisson'><BoissonMenu/><FloatingCart /> </Route>
+        <Route path='/Dessert'><DessertMenu/><FloatingCart /> </Route>
+        <Route path='/Entries'><EntriesMenu/><FloatingCart /> </Route>
+        <Route path='/Plats'><PlatsMenu/><FloatingCart /> </Route>
+        <Route path='/Salades'><SaladesMenu/><FloatingCart /> </Route>
         <Route path='/home'> <Home /><FloatingCart /></Route>
+
         <Route path='/cart'> <Cart /><FloatingCart /></Route>
         <Route path='/singledish'> <Singledish /><FloatingCart /></Route>
         <Route path='/alldish'> <Alldish /><FloatingCart /></Route>

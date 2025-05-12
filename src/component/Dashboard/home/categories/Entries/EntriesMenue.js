@@ -1,21 +1,24 @@
 import React from "react";
-import Food from "../../foodimage";
-import Footer from "../footer/footer";
+import Food from "../../../../foodimage";
+import Footer from "../../../footer/footer";
 import { useHistory } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState,useEffect } from "react";
-import Header from "../header/header";
-import { addTocart } from "../cart/cartslice";
+import Header from "../../../header/header";
+import { addTocart } from "../../../cart/cartslice";
 import { useDispatch,useSelector } from "react-redux";
-import { getTotals } from "../cart/cartslice";
+import { getTotals } from "../../../cart/cartslice";
 
-function Alldish(){
+function EntriesMenu(){
     const dispatch=useDispatch()
     const history=useHistory();
     const location=useLocation();
     const [detail,setdetail]=useState([])
     useEffect(()=>{
-        let data = Food.filter((ele)=>ele.titleId==query.get('id'));
+        // let data = Food.filter((ele)=>ele.titleId==query.get('id'));
+        let data = Food.filter((ele)=>ele.titleId=='2');
+
+        console.log(data)
         setdetail(data)
         
         console.log(detail)
@@ -59,4 +62,4 @@ function Alldish(){
     )
 }
 
-export default Alldish
+export default EntriesMenu
