@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/restoApp/static/css/main.ecaeeea3.css",
-    "main.js": "/restoApp/static/js/main.e89ca01b.js",
+    "main.css": "/restoApp/static/css/main.18e96234.css",
+    "main.js": "/restoApp/static/js/main.75148928.js",
     "static/js/919.088017c2.chunk.js": "/restoApp/static/js/919.088017c2.chunk.js",
     "static/media/korean.png": "/restoApp/static/media/korean.4a733e2c72322f39c542.png",
     "static/media/Italifood-7.png": "/restoApp/static/media/Italifood-7.c9e75abef4e713d883ae.png",
@@ -45,12 +45,12 @@
     "static/media/pintrest.png": "/restoApp/static/media/pintrest.1a3d917b7806456ed29f.png",
     "static/media/cart.jpg": "/restoApp/static/media/cart.befe355adf0c662b6f16.jpg",
     "index.html": "/restoApp/index.html",
-    "main.ecaeeea3.css.map": "/restoApp/static/css/main.ecaeeea3.css.map",
-    "main.e89ca01b.js.map": "/restoApp/static/js/main.e89ca01b.js.map",
+    "main.18e96234.css.map": "/restoApp/static/css/main.18e96234.css.map",
+    "main.75148928.js.map": "/restoApp/static/js/main.75148928.js.map",
     "919.088017c2.chunk.js.map": "/restoApp/static/js/919.088017c2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ecaeeea3.css",
-    "static/js/main.e89ca01b.js"
+    "static/css/main.18e96234.css",
+    "static/js/main.75148928.js"
   ]
 }
