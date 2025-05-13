@@ -17,7 +17,10 @@ function DessertMenu(){
     const [detail,setdetail]=useState([])
     useEffect(()=>{
         // let data = Food.filter((ele)=>ele.titleId==query.get('id'));
-        let data = Food.filter((ele)=>ele.titleId=='1');
+        // let data = Food.filter((ele)=>ele.titleId=='1');
+        let data = Food.flatMap(restaurant => 
+            restaurant.menu.filter(item => item.categorie === "Desserts")
+          );
 
         console.log(data)
         setdetail(data)

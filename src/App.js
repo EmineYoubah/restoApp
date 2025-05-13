@@ -36,7 +36,6 @@ function App() {
         <Route path='/restoApp/Plats'><PlatsMenu/><FloatingCart /> </Route>
         <Route path='/restoApp/Salades'><SaladesMenu/><FloatingCart /> </Route>
         <Route path='/restoApp/home'> <Home /><FloatingCart /></Route>
-
         <Route path='/cart'> <Cart /><FloatingCart /></Route>
         <Route path='/singledish'> <Singledish /><FloatingCart /></Route>
         <Route path='/alldish'> <Alldish /><FloatingCart /></Route>

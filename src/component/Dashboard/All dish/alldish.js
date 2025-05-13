@@ -14,8 +14,11 @@ function Alldish(){
     const history=useHistory();
     const location=useLocation();
     const [detail,setdetail]=useState([])
+    let query = new URLSearchParams(location.search)
     useEffect(()=>{
-        let data = Food.filter((ele)=>ele.titleId==query.get('id'));
+        let data = Food.flatMap(restaurant => 
+            restaurant.menu.filter(item => item.categorie === query.get('id'))
+        );
         setdetail(data)
         
         console.log(detail)
@@ -26,7 +29,7 @@ function Alldish(){
         
         dispatch(getTotals())
     },[cart,dispatch])
-    let query = new URLSearchParams(location.search)
+    
     function detailed(id){
         history.push(`/singledish?id=${id}`)
     }

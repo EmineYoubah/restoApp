@@ -6,7 +6,10 @@ import { useDispatch } from "react-redux";
 import { addTocart } from "../../../cart/cartslice";
 function Plats(){
     const dispatch=useDispatch()
-    let Food2=Food.filter((ele)=>ele.titlename==='ItalianFood')
+    // let Food2=Food.filter((ele)=>ele.titlename==='ItalianFood')
+    const Food2 = Food.flatMap(restaurant => 
+        restaurant.menu.filter(item => item.categorie === "Plats")
+      );
     let history=useHistory();
     function prevImage(){
         let box=document.querySelector('.itali-card-image')
@@ -35,9 +38,7 @@ function Plats(){
             <h3>Plats</h3>
             <div className="main-image">
                 
-        <button className="leftImageArrowStyles" onClick={()=>prevImage()}> ❰❰ </button>
 
-            <button className="rightImageArrowStyles" onClick={()=>nextImage()}> ❱❱</button>
         <div className="itali-card-image" >
             {
                 Food2.map((ele)=>{
@@ -54,7 +55,7 @@ function Plats(){
                 </div>
                 })
             }
-    <button onClick={()=>Alldish(Food2[0].titleId) } className='imsa' >See more</button>
+    <button onClick={()=>Alldish(Food2[0].categorie) } className='imsa' >See more</button>
         </div>
         </div>
         </div>

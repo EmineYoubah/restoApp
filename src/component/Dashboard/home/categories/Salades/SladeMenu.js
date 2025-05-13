@@ -16,7 +16,10 @@ function SaladesMenu(){
     const [detail,setdetail]=useState([])
     useEffect(()=>{
         // let data = Food.filter((ele)=>ele.titleId==query.get('id'));
-        let data = Food.filter((ele)=>ele.titleId=='2');
+        // let data = Food.filter((ele)=>ele.titleId=='2');
+        let data = Food.flatMap(restaurant => 
+            restaurant.menu.filter(item => item.categorie === "Salade")
+          );
 
         console.log(data)
         setdetail(data)

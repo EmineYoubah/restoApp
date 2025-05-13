@@ -16,7 +16,13 @@ function Singledish() {
     const [detail, setdetail] = useState({})
 
     useEffect(() => {
-        let data = Food.filter((ele) => ele.id == query.get('id'));
+        // let data = Food.filter((ele) => ele.id == query.get('id'));
+    
+        let data = Food.flatMap(restaurant => 
+            restaurant.menu.filter(item => item.id === parseFloat(query.get('id')))
+          );
+        console.log(data)
+
         setdetail(data[0])
     }, [])
 

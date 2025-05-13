@@ -7,7 +7,10 @@ import { addTocart } from "../../../cart/cartslice";
 import '../../../header/header.css'
 function Dessert(){
     const dispatch=useDispatch()
-    let Food1=Food.filter((ele)=>ele.titlename==='IndianFood');
+    // let Food1=Food.filter((ele)=>ele.titlename==='IndianFood');
+    const Food1 = Food.flatMap(restaurant => 
+        restaurant.menu.filter(item => item.categorie === "Desserts")
+      );
     let history=useHistory();
     
     function AddtoCart(ele){
@@ -35,11 +38,10 @@ function Dessert(){
     return(
         <div className="indi-css">
              {/* <h2>Categories</h2> */}
-             <h3 >Boisson</h3>
+             <h3 >Desserts</h3>
             
         <div className="main-image">
-        <button className="leftImageArrowStyles" onClick={()=>prevImage()}> ❰❰</button>
-            <button className="rightImageArrowStyles" onClick={()=>nextImage()}> ❱❱</button>
+   
         <div className="card-image" >
             {  
                 Food1.map((ele)=>{
@@ -53,7 +55,7 @@ function Dessert(){
                  </>
                 })
             }
-            <button onClick={()=>Alldish(Food1[0].titleId) } className='imsa' >See more</button>
+            <button onClick={()=>Alldish(Food1[0].categorie) } className='imsa' >See more</button>
         </div>
         
         </div>

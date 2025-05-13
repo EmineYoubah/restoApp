@@ -1,5 +1,6 @@
 import React from "react";
 import '../categories.css';
+// import './Boisson.css';
 import Food from "../../../../foodimage";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -7,7 +8,10 @@ import { addTocart } from "../../../cart/cartslice";
 import '../../../header/header.css'
 function Boisson(){
     const dispatch=useDispatch()
-    let Food1=Food.filter((ele)=>ele.titlename==='IndianFood');
+    // let Food1=Food.filter((ele)=>ele.titlename==='IndianFood');
+    const Food1 = Food.flatMap(restaurant => 
+        restaurant.menu.filter(item => item.categorie === "Boisson")
+      );
     let history=useHistory();
     
     function AddtoCart(ele){
@@ -35,11 +39,10 @@ function Boisson(){
     return(
         <div className="indi-css">
              {/* <h2>Categories</h2> */}
-             <h3 >Dessert</h3>
+             <h3 >Boisson</h3>
             
         <div className="main-image">
-        <button className="leftImageArrowStyles" onClick={()=>prevImage()}> ❰❰</button>
-            <button className="rightImageArrowStyles" onClick={()=>nextImage()}> ❱❱</button>
+    
         <div className="card-image" >
             {  
                 Food1.map((ele)=>{
@@ -53,7 +56,7 @@ function Boisson(){
                  </>
                 })
             }
-            <button onClick={()=>Alldish(Food1[0].titleId) } className='imsa' >See more</button>
+            <button onClick={()=>Alldish(Food1[0].categorie) } className='imsa' >See more</button>
         </div>
         
         </div>

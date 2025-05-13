@@ -15,8 +15,9 @@ function BoissonMenu(){
     const location=useLocation();
     const [detail,setdetail]=useState([])
     useEffect(()=>{
-        // let data = Food.filter((ele)=>ele.titleId==query.get('id'));
-        let data = Food.filter((ele)=>ele.titleId=='3');
+        let data = Food.flatMap(restaurant => 
+            restaurant.menu.filter(item => item.categorie === "Boisson")
+          );
 
         console.log(data)
         setdetail(data)
